@@ -9,7 +9,9 @@ class Init {
 	 */
 	public static function getServices(): array
 	{
-		return [];
+		return [
+			Base\Settings::class
+		];
 	}
 
 	/**

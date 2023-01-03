@@ -49,3 +49,5 @@ register_deactivation_hook( __FILE__, 'deactivateKnomicSlideshow');
 if ( class_exists( 'includes\\init' ) ) {
 	Init::registerServices();
 }
+
+?>
