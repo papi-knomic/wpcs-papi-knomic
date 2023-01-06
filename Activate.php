@@ -2,7 +2,7 @@
 
 
 class Activate {
-	public static function activatePlugin() : void {
+	public static function activate_plugin() : void {
 		flush_rewrite_rules();
 	}
 }

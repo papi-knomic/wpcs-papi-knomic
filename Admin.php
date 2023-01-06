@@ -1,7 +1,6 @@
 <?php
 
-class Admin extends BaseController
-{
+class Admin extends BaseController {
 	public function register() : void {
 		add_action( 'admin_menu', [$this, 'addAdminPages']);
 	}

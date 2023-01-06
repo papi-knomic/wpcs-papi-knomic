@@ -8,7 +8,7 @@ class Enqueue extends BaseController {
 	}
 
 	public function printScripts() : void {
-		if ( ! is_admin() ){
+		if ( ! is_admin() ) {
 			//register
 			wp_register_script('slideshow', $this->plugin_url . 'assets/js/slideshow.js',  [], '1.0', false);
 
