@@ -3,6 +3,7 @@
 namespace includes;
 
 use includes\Base\Enqueue;
+use includes\Base\Frontend;
 use includes\Base\Settings;
 use includes\Pages\Admin;
 
@@ -16,7 +17,8 @@ class Init {
 		return [
 			Settings::class,
 			Admin::class,
-			Enqueue::class
+			Enqueue::class,
+			Frontend::class
 		];
 	}
 
