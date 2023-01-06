@@ -1,6 +1,5 @@
 <?php
 
-namespace includes\Base;
 
 class Enqueue extends BaseController {
 	public function register() : void {

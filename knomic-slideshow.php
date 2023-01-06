@@ -47,4 +47,3 @@ if ( class_exists( 'includes\\init' ) ) {
 	Init::registerServices();
 }
 
-?>
