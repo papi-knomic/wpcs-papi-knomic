@@ -36,6 +36,6 @@ register_activation_hook( __FILE__, ['Activate', 'activate_plugin']);
 register_deactivation_hook( __FILE__, ['Deactivate', 'deactivate_plugin']);
 
 if ( class_exists( 'init' ) ) {
-	Init::registerServices();
+	Init::register_services();
 }
 
