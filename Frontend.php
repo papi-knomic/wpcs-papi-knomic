@@ -1,12 +1,12 @@
 <?php
 
 
-class Frontend  {
+class Frontend {
 	public function register() : void {
-		add_shortcode( 'knomic_slideshow', [ $this, 'showSlideshow'] );
+		add_shortcode( 'knomic_slideshow', [ $this, 'show_slideshow'] );
 	}
 
-	public function showSlideshow() : void {
+	public function show_slideshow() : void {
 		require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'views/slideshow-frontend.php';
 	}
 }
