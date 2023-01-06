@@ -1,14 +1,14 @@
 <?php
 
 
-class Settings  {
+class Settings {
 	public function register() : void {
-		add_action('init', [$this, 'createPostType']);
+		add_action('init', [$this, 'create_post_type']);
 //		add_image_size('np_widget', 180, 100, true);
 //		add_image_size('np_function', 600, 280, true);
 	}
 
-	public function createPostType() : void {
+	public function create_post_type() : void {
 		$args = [
 			'public' => true,
 			'label' => 'Slideshow Images',
