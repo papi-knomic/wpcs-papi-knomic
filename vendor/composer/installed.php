@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'b05d51fae36b88f184f28769e9bc8d4bcb5e380c',
+    'reference' => 'e535718ef4e90ac5dc3a29160b1b5c314889138a',
     'name' => 'knomic/slideshow',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'b05d51fae36b88f184f28769e9bc8d4bcb5e380c',
+      'reference' => 'e535718ef4e90ac5dc3a29160b1b5c314889138a',
     ),
   ),
 );
