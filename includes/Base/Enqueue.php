@@ -3,14 +3,12 @@
 namespace includes\Base;
 
 class Enqueue extends BaseController {
-	public function register()
-	{
+	public function register() : void {
 		add_action( 'wp_print_scripts', [ $this, 'printScripts' ]);
 		add_action( 'wp_print_styles',  [ $this, 'printStyles']);
 	}
 
-	public function printScripts() : void
-	{
+	public function printScripts() : void {
 
 		if ( ! is_admin() ){
 			//register
@@ -28,11 +26,10 @@ class Enqueue extends BaseController {
 		wp_enqueue_script('jquery-ui-sortable' );
 	}
 
-	public function printStyles() : void
-	{
+	public function printStyles() : void {
 		wp_enqueue_style( 'jquery-ui-datepicker' );
 		wp_enqueue_style( 'jquery-ui-sortable' );
-		wp_enqueue_style( 'slideshow', $this->plugin_url . 'assets/css/slideshow.css');
+		wp_enqueue_style( 'slideshow', $this->plugin_url . 'assets/css/slideshow.css', [], '1.0' );
 	}
 
 }

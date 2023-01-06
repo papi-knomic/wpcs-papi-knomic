@@ -1,4 +1,5 @@
 <?php
+$images = [];
 ?>
 <div id="slideshow-example" data-component="slideshow">
     <h1> Na the slide ooh</h1>
