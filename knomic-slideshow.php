@@ -10,9 +10,6 @@
  */
 
 
-use includes\Base\Activate;
-use includes\Base\Deactivate;
-use includes\Init;
 
 //Stops file from being called directly
 if ( ! defined( 'WPINC' ) ) {
