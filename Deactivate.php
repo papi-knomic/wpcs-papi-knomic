@@ -2,7 +2,7 @@
 
 
 class Deactivate {
-	public static function deactivate() : void {
+	public static function deactivatePlugin() : void {
 		flush_rewrite_rules();
 	}
 }

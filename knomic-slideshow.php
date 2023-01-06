@@ -17,33 +17,25 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'KNOMIC_SLIDESHOW_VERSION', '1.0.0' );
+define( 'KNOMIC_SLIDESHOW__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
-// Require once for the composer autoload
-if (file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
-	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
-}
+
+require_once( KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Activate.php' );
+require_once( KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Deactivate.php' );
+require_once( KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Init.php' );
 
 
 /*
  * Plugin activation
  */
-function activateKnomicSlideshow() : void
-{
-	Activate::activate();
-}
-register_activation_hook( __FILE__, 'activateKnomicSlideshow');
+register_activation_hook( __FILE__, ['Activate', 'activatePlugin']);
 
 /*
  * Plugin deactivation
  */
-function deactivateKnomicSlideshow() : void
-{
-	Deactivate::deactivate();
-}
+register_deactivation_hook( __FILE__, ['Deactivate', 'deactivatePlugin']);
 
-register_deactivation_hook( __FILE__, 'deactivateKnomicSlideshow');
-
-if ( class_exists( 'includes\\init' ) ) {
+if ( class_exists( 'init' ) ) {
 	Init::registerServices();
 }
 
