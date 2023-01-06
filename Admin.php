@@ -11,6 +11,6 @@ class Admin {
 
 
 	public function adminIndex(): void {
-		require_once KNOMIC_SLIDESHOW__PLUGIN_PATH . 'views/admin-page.php';
+		require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'views/admin-page.php';
 	}
 }
