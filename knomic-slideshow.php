@@ -18,6 +18,8 @@ if ( ! defined( 'WPINC' ) ) {
 
 define( 'KNOMIC_SLIDESHOW_VERSION', '1.0.0' );
 define( 'KNOMIC_SLIDESHOW__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'KNOMIC_SLIDESHOW__PLUGIN_URL', plugin_dir_url( dirname( __FILE__ ) ) );
+define( 'KNOMIC_SLIDESHOW__PLUGIN', plugin_dir_url( dirname( __FILE__, 2 ) ) );
 
 
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Activate.php';

@@ -1,6 +1,6 @@
 <?php
 
-class Admin extends BaseController {
+class Admin {
 	public function register() : void {
 		add_action( 'admin_menu', [$this, 'addAdminPages']);
 	}
@@ -11,6 +11,6 @@ class Admin extends BaseController {
 
 
 	public function adminIndex(): void {
-		require_once $this->plugin_path . 'views/admin-page.php';
+		require_once KNOMIC_SLIDESHOW__PLUGIN_PATH . 'views/admin-page.php';
 	}
 }

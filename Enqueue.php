@@ -1,7 +1,7 @@
 <?php
 
 
-class Enqueue extends BaseController {
+class Enqueue {
 	public function register() : void {
 		add_action( 'wp_print_scripts', [ $this, 'printScripts' ]);
 		add_action( 'wp_print_styles',  [ $this, 'printStyles']);
@@ -10,7 +10,7 @@ class Enqueue extends BaseController {
 	public function printScripts() : void {
 		if ( ! is_admin() ) {
 			//register
-			wp_register_script('slideshow', $this->plugin_url . 'assets/js/slideshow.js',  [], '1.0', false);
+			wp_register_script('slideshow', KNOMIC_SLIDESHOW__PLUGIN_URL . 'assets/js/slideshow.js',  [], '1.0', false);
 
 			// enqueue frontend scripts
 			wp_enqueue_script('slideshow');
@@ -27,7 +27,7 @@ class Enqueue extends BaseController {
 	public function printStyles() : void {
 		wp_enqueue_style( 'jquery-ui-datepicker' );
 		wp_enqueue_style( 'jquery-ui-sortable' );
-		wp_enqueue_style( 'slideshow', $this->plugin_url . 'assets/css/slideshow.css', [], '1.0' );
+		wp_enqueue_style( 'slideshow', KNOMIC_SLIDESHOW__PLUGIN_URL . 'assets/css/slideshow.css', [], '1.0' );
 	}
 
 }

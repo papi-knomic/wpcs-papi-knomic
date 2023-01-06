@@ -1,7 +1,7 @@
 <?php
 
 
-class Settings extends BaseController {
+class Settings  {
 	public function register() : void {
 		add_action('init', [$this, 'createPostType']);
 //		add_image_size('np_widget', 180, 100, true);
