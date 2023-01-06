@@ -12,7 +12,7 @@ $images =
     ?>
 	<div role="list">
 		<div class="slide">
-			<img src="<?php echo $image ?>" alt="">
+			<img src="<?php _e( $image, 'slideshow' ); ?>" alt="">
 		</div>
 	</div>
     <?php }
