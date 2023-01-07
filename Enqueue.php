@@ -5,7 +5,6 @@ class Enqueue {
 	public function register() : void {
 		add_action( 'wp_print_scripts', [ $this, 'print_scripts' ]);
 		add_action( 'wp_print_styles',  [ $this, 'print_styles']);
-//		add_action( 'admin_enqueue_scripts', []);
 	}
 
 	public function print_scripts() : void {

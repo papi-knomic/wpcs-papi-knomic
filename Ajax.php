@@ -8,15 +8,15 @@ class Ajax {
 	}
 
 	public function add_image() : void {
-
+		wp_send_json_success( 'It works' );
 	}
 
 	public function remove_image() : void {
-
+		wp_send_json_success( 'It works' );
 	}
 
 	public function sort_slide() : void {
-
+		wp_send_json_success( 'It works' );
 	}
 
 }
