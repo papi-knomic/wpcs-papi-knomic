@@ -5,16 +5,31 @@ $images =
         "https://upload.wikimedia.org/wikipedia/commons/2/27/%28Unknown%29_-_Still_003.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/c/c0/Cat_Briciola_with_pretty_and_different_colour_of_eyes.jpg"
         ];
+$count = count( $images );
 ?>
-<div id="slideshow-example" data-component="slideshow">
+<div class="container">
     <?php
-    foreach ( $images as $image ) {
+    foreach ( $images as $index => $image ) {
+        $index += 1;
     ?>
-	<div role="list">
-		<div class="slide">
-			<img src="<?php _e( $image, 'slideshow' ); ?>" alt="">
-		</div>
-	</div>
+        <div class="mySlides">
+            <div class="numbertext"><?php esc_attr_e("$index/$count"); ?></div>
+            <img src="<?php esc_attr_e( $image, 'slideshow' ); ?>" style="width:100%" alt="<?php esc_attr_e($index); ?>">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     <?php }
     ?>
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+		<?php
+		foreach ( $images as $index => $image ) {
+			$index += 1;
+			?>
+            <span class="dot" onclick="showSlides(<?php esc_attr_e($index, 'slideshow') ?>)"></span>
+		<?php }
+		?>
+    </div>
 </div>
+

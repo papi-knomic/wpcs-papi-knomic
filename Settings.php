@@ -4,8 +4,7 @@
 class Settings {
 	public function register() : void {
 		add_action('init', [$this, 'create_post_type']);
-//		add_image_size('np_widget', 180, 100, true);
-//		add_image_size('np_function', 600, 280, true);
+		add_image_size('slideshow_size', 814, 610, true);
 	}
 
 	public function create_post_type() : void {
