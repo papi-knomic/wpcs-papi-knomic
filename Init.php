@@ -4,6 +4,7 @@ require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Settings.php';
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Admin.php';
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Enqueue.php';
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Frontend.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Ajax.php';
 
 
 class Init {
@@ -16,7 +17,8 @@ class Init {
 			Settings::class,
 			Admin::class,
 			Enqueue::class,
-			Frontend::class
+			Frontend::class,
+			Ajax::class
 		];
 	}
 

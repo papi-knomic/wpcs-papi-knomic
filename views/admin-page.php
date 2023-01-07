@@ -1,21 +1,15 @@
-<?php
-$images =
-	[
-		"https://upload.wikimedia.org/wikipedia/commons/a/af/%22_13_-_ITALY_-_gatto_nero_nella_scatola_-_black_cat_in_the_box_-_sancazz_paper_box.jpg",
-		"https://upload.wikimedia.org/wikipedia/commons/2/27/%28Unknown%29_-_Still_003.jpg",
-		"https://upload.wikimedia.org/wikipedia/commons/c/c0/Cat_Briciola_with_pretty_and_different_colour_of_eyes.jpg"
-	];
-?>
 
-<h2>Knomic Slideshow Settings</h2>
-<div class="sortable">
-	<?php
-	foreach ( $images as $image ) {
-	?>
-    <img src="<?php esc_attr_e( "$image" ); ?>" alt="image 1">
-    <?php }
-    ?>
-</div>
-<form action="options.php" method="post">
-    <input name="submit" class="button button-primary" type="submit" value="<?php esc_attr_e( 'Save' ); ?>" />
-</form>
+
+<table class="form-table">
+    <tbody>
+    <tr valign="top">
+        <th scope="row">
+            <label for="upload-slideshow-images"><?php _e('Add Slideshow Images', 'slideshow'); ?></label>
+        </th>
+        <td>
+            <button type="button" class="button button-secondary" id="upload-slideshow-images" data-multiple="true" data-button-text="<?php _e('Add to Gallery', 'meta-slider-and-carousel-with-lightbox'); ?>" data-title="<?php _e('Add Images to Gallery', 'meta-slider-and-carousel-with-lightbox'); ?>"><i class="dashicons dashicons-format-gallery"></i> <?php _e('Gallery Images', 'meta-slider-and-carousel-with-lightbox'); ?></button>
+            <button type="button" class="button button-secondary"><i class="dashicons dashicons-trash"></i> <?php _e('Remove Gallery Images', 'meta-slider-and-carousel-with-lightbox'); ?></button><br/>
+        </td>
+    </tr>
+    </tbody>
+</table>
