@@ -22,6 +22,19 @@ define( 'KNOMIC_SLIDESHOW__PLUGIN_URL', plugin_dir_url(  __FILE__  ) );
 define( 'KNOMIC_SLIDESHOW__PLUGIN', plugin_dir_url( dirname( __FILE__ ) ) );
 
 
+//CONSTANTS
+const KNOMIC_SLIDESHOW__LARGE = 'slideshow_large';
+const KNOMIC_SLIDESHOW__THUMB = 'slideshow_thumb';
+const KNOMIC_SLIDESHOW__LARGE_IMAGE_WIDTH = 814;
+const KNOMIC_SLIDESHOW__LARGE_IMAGE_HEIGHT = 610;
+const KNOMIC_SLIDESHOW__THUMB_IMAGE_WIDTH = 180;
+const KNOMIC_SLIDESHOW__THUMB_IMAGE_HEIGHT = 100;
+const KNOMIC_SLIDESHOW__ARRANGEMENT = 'slideshow_arrangement';
+
+add_option(KNOMIC_SLIDESHOW__ARRANGEMENT, [] );
+
+
+
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Activate.php';
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Deactivate.php';
 require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'Init.php';

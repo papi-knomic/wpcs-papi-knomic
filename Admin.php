@@ -7,6 +7,9 @@ class Admin {
 
 	public function add_admin_pages() : void {
 		add_menu_page('Knomic Slideshow', 'Knomic Slideshow', 'manage_options', 'knomic_slideshow', [$this, 'admin_index_page'],'dashicons-format-gallery', 110 );
+
+		//remove custom post type page
+		remove_menu_page( 'edit.php?post_type=slideshow_images' );
 	}
 
 

@@ -10,11 +10,12 @@ $count = count( $images );
 <div class="container">
     <?php
     foreach ( $images as $index => $image ) {
-        $index += 1;
+        ++$index;
+        $number_text = "$index/$count"
     ?>
         <div class="mySlides">
-            <div class="numbertext"><?php esc_attr_e("$index/$count"); ?></div>
-            <img src="<?php esc_attr_e( $image, 'slideshow' ); ?>" style="width:100%" alt="<?php esc_attr_e($index); ?>">
+            <div class="numbertext"><?php esc_attr_e("$number_text"); ?></div>
+            <img src="<?php esc_attr_e( "$image", 'slideshow' ); ?>" style="width:100%" alt="<?php esc_attr_e($index); ?>">
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -24,10 +25,9 @@ $count = count( $images );
     <!-- The dots/circles -->
     <div style="text-align:center">
 		<?php
-		foreach ( $images as $index => $image ) {
-			$index += 1;
+		foreach ( $images as $image ) {
 			?>
-            <span class="dot" onclick="showSlides(<?php esc_attr_e($index, 'slideshow') ?>)"></span>
+            <span class="dot"></span>
 		<?php }
 		?>
     </div>
