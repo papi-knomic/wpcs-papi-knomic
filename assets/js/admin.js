@@ -1,5 +1,24 @@
 jQuery(document).ready(function($){
-    alert('omo')
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    $( function() {
+        $("#sortable").sortable({})
+    })
     $('#upload-slideshow-images').click(function(e) {
         e.preventDefault();
 
@@ -13,10 +32,31 @@ jQuery(document).ready(function($){
                 var uploaded_image = image.state().get('selection').first();
                 // We convert uploaded_image to a JSON object to make accessing it easier
                 // Output to the console uploaded_image
-                console.log(uploaded_image.toJSON());
-                // var image_url = uploaded_image.toJSON().url;
-                // Let's assign the url value to the input field
-                // $('#image_url').val(image_url);
+               if ( uploaded_image ) {
+                   let image = uploaded_image.toJSON(),
+                       id = image.id,
+                       url = image.url;
+                   $.ajax({
+                       method: 'POST',
+                       url: ajaxurl,
+                       data: { action: 'knomic_add_image_to_slide' ,id: id, url: url },
+                       success: function (response) {
+                           if ( ! response.success ) {
+                               toastr.error(response.data.message, 'Error')
+                               return;
+                           }
+                           toastr.success(response.data.message, 'Success')
+                           setTimeout(function() {
+                               window.location.reload();
+                           }, 6000);
+                       },
+                       error: function (response) {
+
+                           // console.log(response)
+                       }
+                   })
+               }
+
             });
     });
 });

@@ -8,7 +8,24 @@ class Ajax {
 	}
 
 	public function add_image() : void {
-		wp_send_json_success( 'It works' );
+		$error_msg = 'Image not found';
+		if ( !isset( $_POST['id'] ) ) {
+			wp_send_json_error( ['message'=> $error_msg]);
+		}
+		$id = $_POST['id'];
+		$attachment = get_post($id);
+		if ( ! $attachment || $attachment->post_type != "attachment" ) {
+			wp_send_json_error( ['message'=> $error_msg]);
+		}
+		$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ?: [];
+		if ( in_array( $id, $image_array ) ) {
+			wp_send_json_error( ['message'=> "Image already in slideshow"]);
+		}
+		$image_array[] = $id;
+		update_option( KNOMIC_SLIDESHOW__ARRANGEMENT, $image_array );
+
+
+		wp_send_json_success( ['message' => 'Image successfully added'] );
 	}
 
 	public function remove_image() : void {
