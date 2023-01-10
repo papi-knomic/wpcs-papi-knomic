@@ -14,12 +14,12 @@ class Ajax {
 		}
 		$id = $_POST['id'];
 		$attachment = get_post($id);
-		if ( ! $attachment || $attachment->post_type != "attachment" ) {
+		if ( ! $attachment ||  'attachment' !==  $attachment->post_type) {
 			wp_send_json_error( ['message'=> $error_msg]);
 		}
-		$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ?: [];
+		$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ? get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) : [];
 		if ( in_array( $id, $image_array ) ) {
-			wp_send_json_error( ['message'=> "Image already in slideshow"]);
+			wp_send_json_error( ['message'=> 'Image already in slideshow']);
 		}
 		$image_array[] = $id;
 		update_option( KNOMIC_SLIDESHOW__ARRANGEMENT, $image_array );
@@ -33,7 +33,9 @@ class Ajax {
 	}
 
 	public function sort_slide() : void {
-		wp_send_json_success( 'It works' );
+		$image_array = $_POST['map'];
+		update_option( KNOMIC_SLIDESHOW__ARRANGEMENT, $image_array );
+		wp_send_json_success( ['message' => 'Image has been sorted']);
 	}
 
 }

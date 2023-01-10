@@ -34,6 +34,7 @@ class Enqueue {
 	public function enqueue_admin_scripts() : void {
 		wp_enqueue_style( 'jquery-ui-sortable' );
 		wp_enqueue_style( 'toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css', [], '1.0' );
+		wp_enqueue_style( 'admin', KNOMIC_SLIDESHOW__PLUGIN_URL . 'assets/css/admin.css', [], '1.0' );
 
 		wp_register_script('toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', ['jquery'], '1.0', false);
 		wp_register_script('admin-slideshow', KNOMIC_SLIDESHOW__PLUGIN_URL . 'assets/js/admin.js', ['jquery'], '1.0', true);

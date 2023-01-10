@@ -16,4 +16,10 @@ $image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ?: [];
 </table>
 
 <div id="sortable">
+    <?php foreach ($images as $index => $image ) { ?>
+       <img src='<?php echo $image?>' class='sortable-image' data-id='<?php echo $image_array[$index] ?>'>
+        <i class="fas fa-times remove-icon"></i>
+    <?php }
+    ?>
+
 </div>
