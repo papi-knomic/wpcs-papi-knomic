@@ -35,8 +35,10 @@ class Enqueue {
 		wp_enqueue_style( 'jquery-ui-sortable' );
 		wp_enqueue_style( 'toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css', [], '1.0' );
 		wp_enqueue_style( 'admin', KNOMIC_SLIDESHOW__PLUGIN_URL . 'assets/css/admin.css', [], '1.0' );
+		wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.15.1/css/all.css', [], '1.0' );
 
 		wp_register_script('toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', ['jquery'], '1.0', false);
+		wp_register_script('clipboard', 'https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', ['jquery'], '1.0', true);
 		wp_register_script('admin-slideshow', KNOMIC_SLIDESHOW__PLUGIN_URL . 'assets/js/admin.js', ['jquery'], '1.0', true);
 
 		wp_enqueue_script('jquery');

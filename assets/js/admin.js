@@ -17,19 +17,28 @@ jQuery(document).ready(function($){
         "hideMethod": "fadeOut"
     }
 
-    var originalMap =  $('.sortable-image').map(function() {
+    let originalList =  $('.sortable-image').map(function() {
         return $(this).data('id');
     }).get()
+
+    let clipboard = new ClipboardJS('.copy-shortcode');
+    clipboard.on('success', function(e) {
+        toastr.success('Copied', 'Success')
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        alert("Failed to copy shortcode. Please try again.");
+    });
 
     $( function() {
         $("#sortable").sortable({
             axis: "x",
             stop: function( event, ui ) {
-                var data = $('.sortable-image').map(function() {
+                let data = $('.sortable-image').map(function() {
                     return $(this).data('id');
                 }).get()
-                if ( mapChange( originalMap, data ) ) {
-                    originalMap = data
+                if ( mapChange( originalList, data ) ) {
+                    originalList = data
                     $.ajax({
                         method: 'POST',
                         url: ajaxurl,
@@ -52,16 +61,15 @@ jQuery(document).ready(function($){
 
     $('#upload-slideshow-images').click(function(e) {
         e.preventDefault();
-
-       if ( originalMap.length < 5 ) {
-           var image = wp.media({
+       if ( originalList.length < 10 ) {
+           let image = wp.media({
                title: 'Upload Image',
                // mutiple: true if you want to upload multiple files at once
                multiple: false
            }).open()
                .on('select', function(e){
                    // This will return the selected image from the Media Uploader, the result is an object
-                   var uploaded_image = image.state().get('selection').first();
+                   let uploaded_image = image.state().get('selection').first();
                    // We convert uploaded_image to a JSON object to make accessing it easier
                    // Output to the console uploaded_image
                    if ( uploaded_image ) {
@@ -78,9 +86,6 @@ jQuery(document).ready(function($){
                                    return;
                                }
                                toastr.success(response.data.message, 'Success')
-                               setTimeout(function() {
-                                   window.location.reload();
-                               }, 6000);
                            },
                        })
                    }
@@ -88,15 +93,38 @@ jQuery(document).ready(function($){
                });
        }
     });
+
+    $('.remove-image').click( function (e) {
+        let parent = $(this).parent(),
+            id = parent.find('.sortable-image').data('id');
+
+        if ( confirm('Do you want to remove this image from slideshow?') ) {
+            $.ajax({
+                method: 'POST',
+                url: ajaxurl,
+                data: { action: 'knomic_remove_image_from_slide', id: id },
+                success: function (response) {
+                    if ( ! response.success ) {
+                        toastr.error(response.data.message, 'Error')
+                        return;
+                    }
+                    toastr.success(response.data.message, 'Success')
+                    parent.fadeOut();
+                    parent.remove();
+                }
+            })
+        }
+
+    })
 });
 
 
-function mapChange( map1, map2 ) {
-    if (  map1.size !== map2.size ){
+function mapChange( list1, list2 ) {
+    if (  list1.size !== list2.size ){
         return true;
     }
-    for ( let i = 0; i < map1.length; i++ ) {
-        if ( map1[i] !== map2[i] ) {
+    for ( let i = 0; i < list1.length; i++ ) {
+        if ( list1[i] !== list2[i] ) {
             return true;
         }
     }

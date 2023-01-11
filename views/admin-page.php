@@ -1,9 +1,16 @@
-<?php
-$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ?: [];
-?>
-
 <table class="form-table">
     <tbody>
+    <tr>
+        <th scope="row">
+            <label for="slideshow-shortcode"><?php esc_attr_e('Slideshow Shortcode', 'slideshow'); ?></label>
+        </th>
+        <td>
+            <div class="shortcode-container">
+                <input type="text" class="slideshow-shortcode" value="[slideshow]" id="slideshow-shortcode" readonly>
+                <button type="button" class="button button-secondary copy-shortcode" data-clipboard-target="#slideshow-shortcode"><?php esc_attr_e('Copy Shortcode', 'slideshow'); ?></button>
+            </div>
+        </td>
+    </tr>
     <tr>
         <th scope="row">
             <label for="upload-slideshow-images"><?php esc_attr_e('Add Slideshow Images', 'slideshow'); ?></label>
@@ -17,8 +24,10 @@ $image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ?: [];
 
 <div id="sortable">
     <?php foreach ($images as $index => $image ) { ?>
-       <img src='<?php echo $image?>' class='sortable-image' data-id='<?php echo $image_array[$index] ?>'>
-        <i class="fas fa-times remove-icon"></i>
+    <div class="image-container">
+        <img src='<?php esc_attr_e( $image, 'slideshow')?>' class='sortable-image' data-id='<?php esc_attr_e( $image_ids[$index], 'slideshow') ?>'>
+        <i class="fas fa-times remove-image"></i>
+    </div>
     <?php }
     ?>
 

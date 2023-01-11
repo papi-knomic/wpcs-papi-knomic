@@ -18,7 +18,7 @@ class Ajax {
 			wp_send_json_error( ['message'=> $error_msg]);
 		}
 		$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) ? get_option( KNOMIC_SLIDESHOW__ARRANGEMENT ) : [];
-		if ( in_array( $id, $image_array ) ) {
+		if ( in_array( (int)$id, $image_array, true ) ) {
 			wp_send_json_error( ['message'=> 'Image already in slideshow']);
 		}
 		$image_array[] = $id;
@@ -29,7 +29,17 @@ class Ajax {
 	}
 
 	public function remove_image() : void {
-		wp_send_json_success( 'It works' );
+		$id = $_POST['id'];
+		$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT );
+		$index = array_search( $id, $image_array );
+		if ( $index === false ) {
+			wp_send_json_error(['message' => 'Image not in slideshow']);
+		}
+		unset( $image_array[$index] );
+		$image_array = array_values($image_array);
+		wp_delete_attachment( $id );
+		update_option( KNOMIC_SLIDESHOW__ARRANGEMENT, $image_array );
+		wp_send_json_success( ['message' => 'Image has been removed']);
 	}
 
 	public function sort_slide() : void {

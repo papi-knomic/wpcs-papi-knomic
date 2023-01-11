@@ -1,15 +1,53 @@
-.sortable-image{
-    position: relative;
+table.form-table {
+    width: 100%;
 }
 
-.remove-icon{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+table.form-table th {
+    text-align: left;
+    padding: 10px;
+}
+
+table.form-table td {
+    padding: 10px;
+}
+
+table.form-table button {
+    background-color: #0073aa;
     color: #fff;
-    background: #000;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+table.form-table button:hover {
+    background-color: #006080;
+}
+
+.sortable-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-container {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.remove-image {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    cursor: pointer;
+    color: #f00;
+    background-color: white;
     padding: 5px;
     border-radius: 50%;
-    cursor: pointer;
+}
+
+.remove-image:hover {
+    background-color: #e50000;
+    color: #fff;
 }
