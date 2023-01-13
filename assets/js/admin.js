@@ -39,19 +39,17 @@ jQuery(document).ready(function($){
                 }).get()
                 if ( mapChange( originalList, data ) ) {
                     originalList = data
+                    let nonce = $('#knomic_slideshow_image_sort').val()
                     $.ajax({
                         method: 'POST',
                         url: ajaxurl,
-                        data: { action: 'knomic_update_slide_arrangement' ,map: data,},
+                        data: { action: 'knomic_update_slide_arrangement' ,map: data, nonce },
                         success: function (response) {
                             if ( ! response.success ) {
                                 toastr.error(response.data.message, 'Error')
                                 return;
                             }
                             toastr.success(response.data.message, 'Success')
-                            // setTimeout(function() {
-                            //     window.location.reload();
-                            // }, 6000);
                         },
                     })
                 }
@@ -61,7 +59,7 @@ jQuery(document).ready(function($){
 
     $('#upload-slideshow-images').click(function(e) {
         e.preventDefault();
-       if ( originalList.length < 10 ) {
+       if ( originalList.length < 5 ) {
            let image = wp.media({
                title: 'Upload Image',
                // mutiple: true if you want to upload multiple files at once
@@ -75,17 +73,21 @@ jQuery(document).ready(function($){
                    if ( uploaded_image ) {
                        let image = uploaded_image.toJSON(),
                            id = image.id,
-                           url = image.url;
+                           url = image.url,
+                           nonce = $('#knomic_slideshow_image_select').val()
                        $.ajax({
                            method: 'POST',
                            url: ajaxurl,
-                           data: { action: 'knomic_add_image_to_slide' ,id: id, url: url },
+                           data: { action: 'knomic_add_image_to_slide' ,id: id, url: url, nonce: nonce },
                            success: function (response) {
                                if ( ! response.success ) {
                                    toastr.error(response.data.message, 'Error')
                                    return;
                                }
                                toastr.success(response.data.message, 'Success')
+                               setTimeout(function(){
+                                   location.reload();
+                               }, 1000);
                            },
                        })
                    }
@@ -96,13 +98,14 @@ jQuery(document).ready(function($){
 
     $('.remove-image').click( function (e) {
         let parent = $(this).parent(),
-            id = parent.find('.sortable-image').data('id');
+            id = parent.find('.sortable-image').data('id'),
+            nonce = $('#knomic_slideshow_image_remove').val()
 
         if ( confirm('Do you want to remove this image from slideshow?') ) {
             $.ajax({
                 method: 'POST',
                 url: ajaxurl,
-                data: { action: 'knomic_remove_image_from_slide', id: id },
+                data: { action: 'knomic_remove_image_from_slide', id: id, nonce: nonce },
                 success: function (response) {
                     if ( ! response.success ) {
                         toastr.error(response.data.message, 'Error')
@@ -114,7 +117,6 @@ jQuery(document).ready(function($){
                 }
             })
         }
-
     })
 });
 

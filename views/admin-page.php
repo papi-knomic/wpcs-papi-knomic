@@ -29,6 +29,7 @@
                         </td>
                     </tr>
                     <span class="description">Choose your desired images for slideshow. You can only add 5 images at the moment. Copy shortcode and put in POST or PAGE. </span>
+                    <?php wp_nonce_field( 'knomic_slideshow_image_select', 'knomic_slideshow_image_select' ); ?>
                     </tbody>
                 </table>
 
@@ -40,6 +41,8 @@
                         </div>
 				    <?php }
 				    ?>
+	                <?php wp_nonce_field( 'knomic_slideshow_image_remove', 'knomic_slideshow_image_remove' ); ?>
+	                <?php wp_nonce_field( 'knomic_slideshow_image_sort', 'knomic_slideshow_image_sort' ); ?>
 
                 </div>
             </div>
