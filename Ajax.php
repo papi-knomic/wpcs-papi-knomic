@@ -26,6 +26,7 @@ class Ajax {
 			update_option( KNOMIC_SLIDESHOW__ARRANGEMENT, $image_array );
 			wp_send_json_success( [ 'message' => 'Image successfully added' ] );
 		}
+		wp_send_json_error(['message' => 'Unauthorised request']);
 	}
 
 	public function remove_image() : void {
