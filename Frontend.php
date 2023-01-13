@@ -3,14 +3,14 @@
 
 class Frontend {
 	public function register() : void {
-		add_shortcode( 'knomic_slideshow', [ $this, 'show_slideshow'] );
+		add_shortcode( KNOMIC_SLIDESHOW_SHORTCODE, [ $this, 'show_slideshow'] );
 	}
 
 	public function show_slideshow() : void {
 		$image_ids = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT );
 		$images = [];
 
-		if ( ! empty( $image_ids ) ){
+		if ( ! empty( $image_ids ) ) {
 			foreach ( $image_ids as $image_id ) {
 				$images[] = wp_get_attachment_image_src( $image_id, KNOMIC_SLIDESHOW__LARGE)[0];
 			}

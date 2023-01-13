@@ -1,7 +1,7 @@
 <?php
 $count = count( $images );
 ?>
-<div class="container">
+<div class="slideshow-container">
     <?php
     foreach ( $images as $index => $image ) {
         ++$index;
