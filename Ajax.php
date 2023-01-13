@@ -33,8 +33,8 @@ class Ajax {
 		if ( isset($_POST['nonce'] )  && wp_verify_nonce( $_POST['nonce'], 'knomic_slideshow_image_remove') ) {
 			$id = $_POST['id'];
 			$image_array = get_option( KNOMIC_SLIDESHOW__ARRANGEMENT );
-			$index = array_search( $id, $image_array );
-			if ( $index === false ) {
+			$index = array_search( $id, $image_array, true );
+			if ( false === $index ) {
 				wp_send_json_error(['message' => 'Image not in slideshow']);
 			}
 			unset( $image_array[$index] );
