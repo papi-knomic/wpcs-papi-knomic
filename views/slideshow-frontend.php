@@ -8,8 +8,8 @@ $count = count( $images );
         $number_text = "$index/$count"
     ?>
         <div class="mySlides">
-            <div class="numbertext"><?php esc_attr_e("$number_text"); ?></div>
-            <img src="<?php esc_attr_e( "$image", 'slideshow' ); ?>" style="width:100%" alt="<?php esc_attr_e($index); ?>">
+            <div class="numbertext"><?php echo esc_attr( $number_text ); ?></div>
+            <img src="<?php echo esc_attr( $image ); ?>" style="width:100%" alt="<?php echo esc_attr($index); ?>">
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

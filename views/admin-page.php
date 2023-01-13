@@ -15,7 +15,7 @@
                         </th>
                         <td>
                             <div class="shortcode-container">
-                                <input type="text" class="slideshow-shortcode" value="[<?php esc_attr_e(KNOMIC_SLIDESHOW_SHORTCODE); ?>]" id="slideshow-shortcode" readonly>
+                                <input type="text" class="slideshow-shortcode" value="[<?php echo esc_attr(KNOMIC_SLIDESHOW_SHORTCODE); ?>]" id="slideshow-shortcode" readonly>
                                 <button type="button" class="button button-secondary copy-shortcode" data-clipboard-target="#slideshow-shortcode"><?php esc_attr_e('Copy Shortcode', 'slideshow'); ?></button>
                             </div>
                         </td>
