@@ -140,7 +140,7 @@ recreate_db() {
 }
 
 create_db() {
-	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
+	C:/wamp64/bin/mysql/mysql5.7.11/bin/ create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
 }
 
 install_db() {

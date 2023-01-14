@@ -1,10 +1,10 @@
 <?php
 
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.settings.php';
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.admin.php';
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.enqueue.php';
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.frontend.php';
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.ajax.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.settings.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.admin.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.enqueue.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.frontend.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.ajax.php';
 
 
 class Init {

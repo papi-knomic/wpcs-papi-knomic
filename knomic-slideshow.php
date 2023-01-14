@@ -35,9 +35,9 @@ const KNOMIC_SLIDESHOW_SHORTCODE = 'knomic_slideshow';
 add_option(KNOMIC_SLIDESHOW__ARRANGEMENT, [] );
 
 
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.activate.php';
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.deactivate.php';
-require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'includes/class.init.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.activate.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.deactivate.php';
+require_once KNOMIC_SLIDESHOW__PLUGIN_DIR . 'class.init.php';
 
 
 /*
