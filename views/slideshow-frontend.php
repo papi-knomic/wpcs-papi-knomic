@@ -9,7 +9,7 @@ $count = count( $images );
     ?>
         <div class="mySlides">
             <div class="numbertext"><?php echo esc_attr( $number_text ); ?></div>
-            <img src="<?php echo esc_attr( $image ); ?>" style="width:100%" alt="<?php echo esc_attr($index); ?>">
+            <img src="<?php echo esc_url( $image ); ?>" style="width:100%" alt="<?php echo esc_attr($index); ?>">
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

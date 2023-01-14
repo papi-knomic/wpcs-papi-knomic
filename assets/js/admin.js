@@ -114,6 +114,13 @@ jQuery(document).ready(function($){
                     toastr.success(response.data.message, 'Success')
                     parent.fadeOut();
                     parent.remove();
+                    let originalList =  $('.sortable-image').map(function() {
+                        return $(this).data('id');
+                    }).get()
+
+                    if ( originalList.length === 0 ) {
+                        location.reload();
+                    }
                 }
             })
         }

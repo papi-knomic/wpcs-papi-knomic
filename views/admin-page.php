@@ -28,23 +28,30 @@
                             <button type="button" class="button button-secondary" id="upload-slideshow-images" data-multiple="true" data-button-text="<?php esc_attr_e('Add Image to Slideshow', 'slideshow'); ?>" data-title="<?php esc_attr_e('Add Image to Slideshow', 'slideshow'); ?>"><i class="dashicons dashicons-format-gallery"></i> <?php esc_attr_e('Add Image to Slideshow', 'slideshow'); ?></button>
                         </td>
                     </tr>
-                    <span class="description">Choose your desired images for slideshow. You can only add 5 images at the moment. Copy shortcode and put in POST or PAGE. </span>
+                    <tr valign="top">
+                        <th scope="row"></th>
+                        <td>
+                            <span class="description">Choose your desired images for slideshow. You can only add 5 images at the moment. Copy shortcode and put in POST or PAGE. Minimum width and height for image is 814 and 610 respectively.</span>
+                        </td>
+                    </tr>
                     <?php wp_nonce_field( 'knomic_slideshow_image_select', 'knomic_slideshow_image_select' ); ?>
                     </tbody>
                 </table>
-
                 <div id="sortable">
-				    <?php foreach ($images as $index => $image ) { ?>
-                        <div class="image-container">
-                            <img src='<?php echo esc_attr( $image )?>' class='sortable-image' data-id='<?php echo esc_attr( $image_ids[$index] ) ?>'>
-                            <i class="fas fa-times remove-image"></i>
-                        </div>
-				    <?php }
-				    ?>
-	                <?php wp_nonce_field( 'knomic_slideshow_image_remove', 'knomic_slideshow_image_remove' ); ?>
-	                <?php wp_nonce_field( 'knomic_slideshow_image_sort', 'knomic_slideshow_image_sort' ); ?>
-
+		            <?php
+		            if ( $images ) {
+			            foreach ($images as $index => $image ) { ?>
+                            <div class="image-container">
+                                <img src='<?php echo esc_url( $image )?>' class='sortable-image' data-id='<?php echo esc_attr( $image_ids[$index] ) ?>' alt='<?php echo esc_attr( $image_ids[$index] ) ?>'>
+                                <i class="fas fa-times remove-image"></i>
+                            </div>
+			            <?php }
+		            } else { ?>
+                        <div class="no-image-added">No image added</div>
+		            <?php } ?>
                 </div>
+	            <?php wp_nonce_field( 'knomic_slideshow_image_remove', 'knomic_slideshow_image_remove' ); ?>
+	            <?php wp_nonce_field( 'knomic_slideshow_image_sort', 'knomic_slideshow_image_sort' ); ?>
             </div>
         </div>
     </div>

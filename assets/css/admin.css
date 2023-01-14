@@ -10,6 +10,11 @@ table.form-table button:hover {
     background-color: #006080;
 }
 
+#sortable {
+    border: 3px dashed #ccc; /* this is to give the div a dotted border */
+    min-height: 100px;
+}
+
 .sortable-image {
     width: 100%;
     height: auto;
@@ -23,18 +28,28 @@ table.form-table button:hover {
     margin: 10px;
 }
 
-.remove-image {
-    position: absolute;
-    top: -10px;
-    right: -5px;
-    cursor: pointer;
-    color: #f00;
-    background-color: white;
-    padding: 5px;
-    border-radius: 50%;
+.image-container img {
+    width: 100%; /* this is to make sure the image takes up the full container */
 }
 
-.remove-image:hover {
-    background-color: #e50000;
-    color: #fff;
+.image-container .remove-image {
+    position: absolute; /* this is to position the icon on top of the image */
+    top: 0;
+    right: 0;
+    font-size: 15px; /* adjust as needed */
+    color: #fff; /* adjust as needed */
+    background-color: rgba(0,0,0,0.5); /* adjust as needed */
+    padding: 5px; /* adjust as needed */
+    display: none; /* this is to hide the icon by default */
+}
+
+.image-container:hover .remove-image {
+    display: block; /* this is to show the icon on hover */
+}
+
+.no-image-added {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    padding: 20px;
 }
