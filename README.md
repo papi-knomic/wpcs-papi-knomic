@@ -1,38 +1,30 @@
-# wp-starter
+# Knomic Slideshow
+A responsive and customizable slideshow plugin for WordPress.
 
-This is a Github [template repo](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-template-repository) with just a readme file that you are reading right now and a magical `.github` folder which contains [Github Actions](https://github.com/features/actions) that automatically check your code against [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/).
+## Features
+* Create and manage slideshow with ease
+* Customizable settings for slide arrangement
+* Fully responsive design for optimal display on any device
+* Compatible with all major browsers
 
-As you are here, you are most likely looking to work with rtCamp where code quality is very important to us. But even if you have no intention to join rtCamp, you are free to use this repo and automated checks present in it, to improve your WordPress coding skill. 
+## Installation
+1. Download the plugin from the WordPress plugin repository or by cloning this repository.
+2. Upload the plugin files to the /wp-content/plugins/ directory, or install the plugin through the WordPress plugins screen directly.
+3. Activate the plugin through the 'Plugins' screen in WordPress.
+4. Create and manage your slideshow under the 'Knomic Slideshow' menu in the WordPress admin dashboard.
 
 ## Usage
+1. Add image to the slideshow by going to the 'Knomic Slideshow' menu in the WordPress admin dashboard and clicking 'Add New Image'.
+2. Sort image in exact way you want slideshow to be arranged
+3. Display your slideshow on your website by using the provided shortcode on a page or post.
 
-There are three ways to use this template repo:
+##Libraries Used
+* [Toastr](https://github.com/CodeSeven/toastr) is a Javascript library for non-blocking notifications
+* [Font Awesome](https://fontawesome.com/) for the slideshow navigation icons
+* [jQuery UI Sortable](https://jqueryui.com/sortable/) for the slideshow's drag-and-drop functionality
 
-### 1. Using Github Classroom Assignment Link
+## Support
+If you have any issues or questions, please open an issue on the [**Github repository**](https://github.com/rtlearn/wpcs-papi-knomic) or reach out to us at [**knomic10@gmail.com**](mailto:knomic10@gmail.com).
 
-1. If you are looking to work with rtCamp, it's better to start [using this assignment link](https://classroom.github.com/a/sC4KV_YZ).
-2. When you open the link, Github will prompt you to "Accept this assignment". 
-3. Clicking the "Accept..." button creates a private copy of this repo to which you and rtCamp's evaluators will have access. Your access level for the repo will be admin-level.
-4. You are expected to push all your codes to this new repo. Make sure you do not touch `.github` folder accidentally as it can break the magic.
-5. If you have developed any theme or plugin codes in the past, you are free to push those codes in your private repo. 
-6. When pushing existing large code-base, we request you to commit them in chunks — ideally one PHP file at a time. You can commit all non-PHP files at once as rtBot only checks PHP codes at the moment. It is yet to [Learn JavaScript Deeply](https://wesbos.com/learn-javascript)!
-
-**Advantages**
-1. You will not have to configure anything. You can just accept the assignment from the link and start pushing your codes right away. 
-2. As you are repo-admin for your copy, at any time, you can move the repo to your personal space. After all, you should have right over your code. 
-
-### 2. "Use this template" option 
-
-1. You can click "Use this template" button or [visit this link](https://github.com/rtlearn/wp-starter/generate)
-2. You will be prompted to select the name/destination for new repo. 
-3. Please note that you may need to configure automated code review yourself. If you do not, your assignment may not be considered for review.
-   
-### 3. Clone or Fork as a normal repo
-
-You are free to do whatever you would like to do with this repo. Please note that you may need to configure automated code review yourself.
-
-## Automated PHPCS checks
-1. The [coding standard rulest](phpcs.xml) in the automated PHPCS checks are configured to check database, security, and basic code analysis related checks mainly. [Ref. to list of rulesets](https://github.com/WordPress/WordPress-Coding-Standards#rulesets).
-2. It will not check for inline code comments, code formatting, and spacing issues, those checks have been excluded. But it is good to have these as well in your code.
-3. [This](https://learn.rtcamp.com/lessons/coding-standards-and-best-practices/) is a good starting point for understanding the WordPress Coding Standards.
-4. [Guide](https://github.com/WordPress/WordPress-Coding-Standards#using-phpcs-and-wpcs-from-within-your-ide) to setup the WordPress Coding Standard checks in your IDE.
+## Contributing
+We welcome any contributions to the plugin. Please submit a pull request with your changes and we will review them as soon as possible.
