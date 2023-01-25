@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {"includes\\": "./"}
+    }
+}
