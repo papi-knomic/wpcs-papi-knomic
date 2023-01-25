@@ -1,10 +1,8 @@
 <?php
+require '../class.ajax.php';
 
 
-use PHPUnit\Framework\TestCase;
-use includes\Ajax;
-
-class AjaxTest extends TestCase {
+class AjaxTest extends WP_UnitTestCase {
 
 	/**
 	 * @var Ajax
@@ -13,7 +11,7 @@ class AjaxTest extends TestCase {
 
 	public function setUp() : void {
 		parent::setUp();
-		$this->ajax = new Ajax();
+		$this->ajax = new \Ajax();
 	}
 
 	/**
